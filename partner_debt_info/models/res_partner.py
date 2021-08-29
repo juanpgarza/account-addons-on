@@ -27,5 +27,5 @@ class ResPartner(models.Model):
             ('type', 'in', ('in_invoice', 'in_refund', 'out_invoice', 'out_refund')),
             ('partner_id', 'child_of', self.id)
         ]
-        action['context'] = {'search_default_unpaid': 1}
+        action['context'] = {'search_default_unpaid': 1, 'default_type': 'out_invoice'}
         return action

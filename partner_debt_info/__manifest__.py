@@ -4,7 +4,7 @@
 {
     "name": "Information about partner debt",    
     "summary": "",
-    "version": "13.0.1.0.0",
+    "version": "13.0.1.1.0",
     "category": "Account",
     "website": "https://github.com/OpenNovaSoft/misc-addons",
     "author": "openNova",
