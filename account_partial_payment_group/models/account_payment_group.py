@@ -15,9 +15,9 @@ class AccountPaymentGroup(models.Model):
         currency_field='company_currency_id',
     )
 
-    writeoff_amount_company = fields.Monetary(
-        string='Payment difference amount company',
-        compute='_compute_writeoff_amount_company')
+    # writeoff_amount_company = fields.Monetary(
+    #     string='Payment difference amount company',
+    #     compute='_compute_writeoff_amount_company')
 
     #Registrar monto a pagar parcialmente
     partial_payment_ids = fields.One2many(
@@ -39,11 +39,11 @@ class AccountPaymentGroup(models.Model):
             rec.unmatched_amount_company = rec.currency_id._convert(rec.unmatched_amount, rec.company_currency_id, rec.company_id,
                 rec.payment_date or fields.Date.context_today())
 
-    @api.depends('writeoff_amount')
-    def _compute_writeoff_amount_company(self):
-        for rec in self:
-            rec.writeoff_amount_company = rec.currency_id._convert(rec.writeoff_amount, rec.company_currency_id, rec.company_id,
-                rec.payment_date or fields.Date.context_today())
+    # @api.depends('writeoff_amount')
+    # def _compute_writeoff_amount_company(self):
+    #     for rec in self:
+    #         rec.writeoff_amount_company = rec.currency_id._convert(rec.writeoff_amount, rec.company_currency_id, rec.company_id,
+    #             rec.payment_date or fields.Date.context_today())
 
     @api.depends(
         'to_pay_move_line_ids.amount_residual',
@@ -196,8 +196,8 @@ class AccountPaymentGroup(models.Model):
             writeoff_journal_id = False
 
             #Conciliar en una cuenta contable la diferencia entre la deuda y lo pagado.
-            if rec.payment_difference_handling == 'reconcile':
-                rec.reconcile_diff_payment()
+            # if rec.payment_difference_handling == 'reconcile':
+            #     rec.reconcile_diff_payment()
 
             # al crear desde website odoo crea primero el pago y lo postea
             # y no debemos re-postearlo

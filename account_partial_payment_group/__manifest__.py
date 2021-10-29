@@ -11,12 +11,12 @@
     "license": "AGPL-3",
     "application": False,
     'installable': True,
-    "depends": ["account_payment_group", "account_accountant"],
+    "depends": ["account_payment_group"],
     "data": [
         'security/ir.model.access.csv',
         'views/account_move_line_view.xml',
         'views/account_payment_group_view.xml',
         'views/account_payment_view.xml',
-        'data/account_accountant_data.xml',
+        # 'data/account_accountant_data.xml',
     ],
 }
