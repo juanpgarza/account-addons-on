@@ -7,7 +7,7 @@
     <field name="model">account.move.line</field>
     <field eval="99" name="priority"/>
     <field name="arch" type="xml">
-        <tree string="Journal Items" edit="0" create="0" editable="bottom">
+        <tree string="Journal Items" edit="0" editable="bottom">
             <field name="date"/>
             <field name="date_maturity" readonly="1"/>
             <field name="move_id" required="0"/>
